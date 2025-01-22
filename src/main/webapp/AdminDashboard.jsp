@@ -1,3 +1,11 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: HP
+  Date: 22/01/2025
+  Time: 01:08
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,7 +83,7 @@
                     <a class="nav-link" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Users </a>
+                    <a class="nav-link" href="UsersManage.jsp">Users </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Products </a>
@@ -150,3 +158,4 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+

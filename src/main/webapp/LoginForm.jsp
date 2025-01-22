@@ -94,21 +94,21 @@
 <!-- Login Container -->
 <div class="login-container">
     <h3>Welcome Back Lulus Fashion!</h3>
-    <form>
+    <form action="login" method="post">
         <div class="mb-3">
             <label for="email" class="form-label">Email Address</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+            <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email">
         </div>
         <div class="mb-3">
             <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Enter your password">
+            <input type="password" class="form-control" name="password" id="password" placeholder="Enter your password">
             <div class="forgot-password">
                 <a href="#">Forgot password?</a>
             </div>
         </div>
         <button type="submit" class="btn btn-custom">Login</button>
         <p class="mt-3">
-            Don't have an account? <a href="#">Register here</a>.
+            Don't have an account? <a href="RegisterForm.jsp">Register here</a>.
         </p>
     </form>
 </div>
