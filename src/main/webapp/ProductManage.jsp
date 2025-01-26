@@ -249,7 +249,7 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    // Update product modal
+
     var updateProductModal = document.getElementById('updateProductModal');
     updateProductModal.addEventListener('show.bs.modal', function (event) {
         var button = event.relatedTarget;
