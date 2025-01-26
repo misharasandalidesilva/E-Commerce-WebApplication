@@ -15,13 +15,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
-        /* General Styling */
         body {
             background-color: #ffe4ec;
             font-family: 'Arial', sans-serif;
         }
 
-        /* Top Navbar Styling */
         .navbar {
             background-color: #ffc1c1;
         }
@@ -31,13 +29,11 @@
             font-family: KDDESIE;
         }
 
-        /* Main Content Styling */
         .main-content {
             padding: 20px;
             margin-top: 100px;
         }
 
-        /* Header Section Styling */
         .header {
             font-size: 40px;
             font-weight: bold;
@@ -61,7 +57,7 @@
         .footer {
             position: fixed;
             text-align: center;
-            margin-top: 100px;
+            margin-top: 150px;
             font-size: 14px;
             background: #ffdde1;
             padding: 10px 500px;
@@ -95,10 +91,6 @@
                     <a class="nav-link" href="#">Profile</a>
                 </li>
             </ul>
-<%--            <div class="ms-auto">--%>
-<%--                <a href="LoginForm.jsp" class="btn btn-outline-pink btn-sm">Login</a>--%>
-<%--                <a href="RegisterForm.jsp" class="btn btn-pink btn-sm">Register</a>--%>
-<%--            </div>--%>
         </div>
     </div>
 </nav>

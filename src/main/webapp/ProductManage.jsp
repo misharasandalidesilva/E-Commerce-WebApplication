@@ -71,6 +71,7 @@
                 <th>Price</th>
                 <th>Quantity</th>
                 <th>Size</th>
+                <th>Image</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -89,6 +90,9 @@
                 <td><%= product.getQuantity() %></td>
                 <td><%= product.getSize() %></td>
                 <td>
+                <img src="<%= request.getContextPath() %>/uploads/<%= product.getImage() %>" alt="Product Image" width="100"></td>
+
+                <td>
                     <button class="btn btn-sm btn-warning"
                             data-bs-toggle="modal"
                             data-bs-target="#updateProductModal"
@@ -98,7 +102,8 @@
                             data-productdescription="<%= product.getDescription() %>"
                             data-productprice="<%= product.getPrice() %>"
                             data-productquantity="<%= product.getQuantity() %>"
-                            data-productsize="<%= product.getSize() %>">
+                            data-productsize="<%= product.getSize() %>"
+                            data-productimage="<%= product.getImage() %>">
                         Update
                     </button>
                     <button class="btn btn-sm btn-danger"
@@ -114,6 +119,15 @@
                     }
                 }
             %>
+
+<%--            <c:forEach var="product" items="${products}">--%>
+<%--                <div class="product">--%>
+<%--                    <h3>${product.name}</h3>--%>
+<%--                    <img src="uploads/${product.image}" alt="${product.name}" />--%>
+<%--                    <p>${product.description}</p>--%>
+<%--                    <p>Price: $${product.price}</p>--%>
+<%--                </div>--%>
+<%--            </c:forEach>--%>
             </tbody>
         </table>
     </div>
@@ -128,7 +142,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="addProductForm" action="product-manage" method="post">
+                <form id="addProductForm" action="product-manage" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="productName" class="form-label">Product Name</label>
                         <input type="text" class="form-control" name="name" id="productName" required>
@@ -158,6 +172,10 @@
                     <div class="mb-3">
                         <label for="productSize" class="form-label">Size</label>
                         <input type="text" class="form-control" name="size" id="productSize" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="productImage" class="form-label">Product Image</label>
+                        <input type="file" name="image" id="productImage" class="form-control" accept="image/*" required>
                     </div>
                     <button type="submit" class="btn btn-primary" style="background-color: #ff79c6; border-color: #ff79c6;">Add Product</button>
                 </form>
@@ -234,9 +252,9 @@
     // Update product modal
     var updateProductModal = document.getElementById('updateProductModal');
     updateProductModal.addEventListener('show.bs.modal', function (event) {
-        var button = event.relatedTarget; // The button that triggered the modal
+        var button = event.relatedTarget;
 
-        // Fetching product data from the button's data attributes
+
         var productId = button.getAttribute('data-productid');
         var productName = button.getAttribute('data-productname');
         var productCategory = button.getAttribute('data-productcategory');
@@ -244,13 +262,13 @@
         var productPrice = button.getAttribute('data-productprice');
         var productQuantity = button.getAttribute('data-productquantity');
         var productSize = button.getAttribute('data-productsize');
+        var productImage = button.getAttribute('data-productimage');
 
-        // Ensure the productId is not empty and set it in the modal input
+
         if (productId) {
             document.getElementById('updateProductId').value = productId; // Populate the product ID
         } else {
             console.error('Product ID is missing!');
-            // Optionally, you could set an error message or handle the case when productId is missing
         }
 
         // Ensure that the productName, category, description, price, quantity, and size are all set
@@ -260,7 +278,9 @@
         document.getElementById('updateProductPrice').value = productPrice || ''; // Set to empty if missing
         document.getElementById('updateProductQuantity').value = productQuantity || ''; // Set to empty if missing
         document.getElementById('updateProductSize').value = productSize || ''; // Set to empty if missing
+        document.getElementById('updateProductImage').value = productImage || ''; // Set to empty if missing
     });
+
 
 
 

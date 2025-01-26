@@ -30,6 +30,6 @@ public class ProductDeleteServlet extends HttpServlet {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        resp.sendRedirect("getallcategory");
+        resp.sendRedirect("product-manage");
     }
 }

@@ -209,7 +209,7 @@
             <ul class="navbar-nav ">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Brands
+                        Products
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">moose</a></li>
@@ -232,10 +232,10 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About Us</a>
+                    <a class="nav-link" href="#About-Us">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact Us</a>
+                    <a class="nav-link" href="#Contact-Us">Contact Us</a>
                 </li>
             </ul>
             <form class="d-flex mx-auto" role="search">
@@ -394,7 +394,7 @@
             <div class="col-md-4 col-lg-3 col-sm-6 mb-4 d-flex justify-content-center">
                 <div class="card p-3" style="max-width: 400px; margin: auto; border: 3px solid #da6879 ">
                     <div class="text-center">
-                        <img src="assests/HomePage/frock(01).jpg" alt="Product Image" class="img-fluid rounded">
+                        <img src="assests/HomePage/Womens-Traveler-pant-Moose-Clothing-Company-400x605.png" alt="Product Image" class="img-fluid rounded">
                     </div>
                     <div class="card-body text-center">
                         <h6 class="card-title text-muted">Brand: moose</h6>
@@ -542,7 +542,7 @@
             </div>
 
             <!-- About Us Section -->
-            <div class="about-us">
+            <div class="about-us" id="About-Us">
                 <div class="container my-5">
                     <div class="row align-items-center">
                         <div class="col-lg-6">
@@ -619,6 +619,7 @@
             </div>
 
             <!-- Contact Section -->
+            <div class="contact" id="Contact-Us">
             <div class="container my-5"> <h2 class="mb-4" style="color: #da6879;"  >Contact Us</h2>
                 <div class="row g-4">
                     <!-- Contact Form -->
@@ -663,6 +664,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 
             <!-- Footer -->

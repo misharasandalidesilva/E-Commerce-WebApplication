@@ -19,7 +19,6 @@ public class CategoryDeleteServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String idParam = req.getParameter("categoryId");
 
-        // Validate the ID
         if (idParam == null || idParam.isEmpty()) {
             req.setAttribute("errorMessage", "Category ID is missing.");
             req.getRequestDispatcher("CategoryManage.jsp").forward(req, resp);
@@ -35,7 +34,6 @@ public class CategoryDeleteServlet extends HttpServlet {
             return;
         }
 
-        // Access the data source
         ServletContext servletContext = getServletContext();
         BasicDataSource ds = (BasicDataSource) servletContext.getAttribute("dataSource");
 

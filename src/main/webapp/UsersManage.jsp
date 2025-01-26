@@ -16,13 +16,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
-        /* General Styling */
         body {
             background-color: #ffe4ec;
             font-family: 'Arial', sans-serif;
         }
 
-        /* Header Section */
+
         .header {
             font-size: 30px;
             font-weight: bold;
@@ -30,7 +29,7 @@
 
         }
 
-        /* Add User Button */
+
         .add-user-btn {
             background-color: #ff79c6;
             border-color: #ff79c6;
@@ -45,7 +44,6 @@
             border-color: #e066b4;
         }
 
-        /* Table Styling */
         .user-table {
             background: #fff;
             border-radius: 8px;
@@ -65,7 +63,7 @@
             text-align: center;
         }
 
-        /* Footer Styling */
+
         .footer {
             text-align: center;
             margin-top: 350px;
