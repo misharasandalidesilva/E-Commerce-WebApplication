@@ -24,7 +24,7 @@ public class RegistrationServlet extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
         String comfirmPassword = req.getParameter("confirmPassword");
-        String role = "customer";
+        String role = "Customer";
 
         System.out.println("name: " + name + " email: " + email + " password: " + password + " comfirmPassword: " + comfirmPassword);
 

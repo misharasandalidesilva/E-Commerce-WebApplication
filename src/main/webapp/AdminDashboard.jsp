@@ -83,22 +83,22 @@
                     <a class="nav-link" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="UsersManage.jsp">Users </a>
+                    <a class="nav-link" href="user-manage">Users </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Products </a>
+                    <a class="nav-link" href="getallcategory">Products </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Catogories</a>
+                    <a class="nav-link" href="category-manage">Category</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Profile</a>
                 </li>
             </ul>
-            <div class="ms-auto">
-                <a href="LoginForm.jsp" class="btn btn-outline-pink btn-sm">Login</a>
-                <a href="RegisterForm.jsp" class="btn btn-pink btn-sm">Register</a>
-            </div>
+<%--            <div class="ms-auto">--%>
+<%--                <a href="LoginForm.jsp" class="btn btn-outline-pink btn-sm">Login</a>--%>
+<%--                <a href="RegisterForm.jsp" class="btn btn-pink btn-sm">Register</a>--%>
+<%--            </div>--%>
         </div>
     </div>
 </nav>

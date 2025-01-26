@@ -247,9 +247,15 @@
                 <a href="LoginForm.jsp" class="btn btn-outline-pink btn-sm">Login</a>
                 <a href="RegisterForm.jsp" class="btn btn-pink btn-sm">Register</a>
             </div>
+            <div>
+                <a href="AdminDashboard.jsp" class="btn btn-outline-pink btn-sm">Admin Dashboard</a>
+            </div>
+
         </div>
     </div>
 </nav>
+
+
 
 <!-- Hero Section -->
 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">

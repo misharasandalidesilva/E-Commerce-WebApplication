@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 if (resultSet.getString("role").equals("Admin")) {
-                    resp.sendRedirect("AdminDashBoard.jsp");
+                    resp.sendRedirect("AdminDashboard.jsp");
                 }else {
                     resp.sendRedirect("index.jsp");
                 }

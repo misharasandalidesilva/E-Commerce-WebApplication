@@ -1,4 +1,5 @@
-<%--
+<%@ page import="org.example.ecommercewebapplication.DTO.UserDTO" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: HP
   Date: 22/01/2025
@@ -92,37 +93,35 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Role</th>
-                <th>Status</th>
                 <th>Actions</th>
             </tr>
             </thead>
             <tbody>
+            <%
+                List<UserDTO> users = (List<UserDTO>) request.getAttribute("users");
+                if (users != null) {
+                    for (UserDTO user : users) {
+            %>
             <tr>
-                <td>1</td>
-                <td>Jane Doe</td>
-                <td>jane.doe@example.com</td>
-                <td>Admin</td>
+                <td><%= user.getId() %></td>
+                <td><%= user.getName() %></td>
+                <td><%= user.getEmail() %></td>
+                <td><%= user.getRole() %></td>
                 <td>
-                    <button type="button" class="btn btn-success">Active</button>
-
-                </td>
-                <td>
-                    <button class="btn btn-warning btn-sm">Edit</button>
-                    <button class="btn btn-danger btn-sm">Delete</button>
+                    <!-- Delete Button -->
+                    <button class="btn btn-sm btn-danger"
+                            data-bs-toggle="modal"
+                            data-bs-target="#deleteUserModal"
+                            data-userid="<%= user.getId() %>"
+                            data-username="<%= user.getName() %>">
+                        Delete
+                    </button>
                 </td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>John Smith</td>
-                <td>john.smith@example.com</td>
-                <td>User</td>
-                <td>
-                    <button type="button" class="btn btn-danger">Deactivated</button>
-                </td>
-                <td>
-                    <button class="btn btn-danger btn-sm">Delete</button>
-                </td>
-            </tr>
+            <%
+                    }
+                }
+            %>
             </tbody>
         </table>
     </div>
@@ -142,29 +141,29 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="addUserForm">
+                <form id="addUserForm" action="user-manage" method="post">
                     <div class="mb-3">
                         <label for="userName" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="userName" placeholder="Enter name" required>
+                        <input type="text" class="form-control" name="name" id="userName" placeholder="Enter name" required>
                     </div>
                     <div class="mb-3">
                         <label for="userEmail" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="userEmail" placeholder="Enter email" required>
+                        <input type="email" class="form-control" name="email" id="userEmail" placeholder="Enter email" required>
                     </div>
                     <div class="mb-3">
                         <label for="userPassword" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="userPassword" placeholder="Enter password" required>
+                        <input type="password" class="form-control" name="password" id="userPassword" placeholder="Enter password" required>
                     </div>
                     <div class="mb-3">
                         <label for="userConfirmPassword" class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control" id="userConfirmPassword" placeholder="Confirm password" required>
+                        <input type="password" class="form-control" name="confirmPassword" id="userConfirmPassword" placeholder="Confirm password" required>
                     </div>
                     <div class="mb-3">
                         <label for="userRole" class="form-label">Role</label>
-                        <select class="form-select" id="userRole" required>
+                        <select class="form-select" name="role" id="userRole" required>
                             <option selected>Choose role...</option>
                             <option value="Admin">Admin</option>
-                            <option value="User">User</option>
+                            <option value="Customer">Customer</option>
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary" style="background-color: #ff79c6; border-color: #ff79c6;">Add User</button>
@@ -174,19 +173,37 @@
     </div>
 </div>
 
+<div class="modal fade" id="deleteUserModal" tabindex="-1" aria-labelledby="deleteUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteUserModalLabel">Delete User</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete the user <strong id="userName2"></strong>?</p>
+                <form id="deleteForm" action="deleteUser" method="post">
+                    <input type="hidden" name="userId" id="id">
+                    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
-    document.getElementById("addUserForm").addEventListener("submit", function (e) {
-        e.preventDefault();
-        const password = document.getElementById("userPassword").value;
-        const confirmPassword = document.getElementById("userConfirmPassword").value;
+    var deleteUserModal = document.getElementById('deleteUserModal');
+    deleteUserModal.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget;
+        var userId = button.getAttribute('data-userid');
+        var userName = button.getAttribute('data-username');
 
-        if (password !== confirmPassword) {
-            alert("Passwords do not match!");
-            return;
-        }
+        var userName2 = document.getElementById('userName2');
+        userName2.textContent = userName;
 
-        alert("User added successfully!");
-        // Add logic to submit form data to server here
+        var userIdInput = document.getElementById('id');
+        userIdInput.value = userId;
     });
 </script>
 
